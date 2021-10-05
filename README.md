@@ -1,3 +1,3 @@
 # Project 0
 
-## Some description
+## Small Bank DB application
