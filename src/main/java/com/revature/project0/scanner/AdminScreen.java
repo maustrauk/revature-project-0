@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.revature.project0.LogHelper;
-import com.revature.project0.MainDriver;
 import com.revature.project0.ServicesLoader;
 import com.revature.project0.models.Account;
 import com.revature.project0.models.User;
@@ -38,7 +37,7 @@ public class AdminScreen implements Screen{
 		
 		switch (enter) {
 		case "0":
-			MainDriver.isRunning = false;
+			System.exit(1);
 			return;
 			
 		case "1":
