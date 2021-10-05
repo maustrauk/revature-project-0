@@ -29,6 +29,7 @@ public class LogHelper {
 	public void callFatalLogger(Exception e) {
 		log.setLevel(Level.DEBUG);
 		log.fatal(e);
+		System.exit(1);
 	}
 }
 
