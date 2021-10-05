@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project0.LogHelper;
 import com.revature.project0.models.Role;
 
 public class RoleDaoImpl implements RoleDao{
 	
 	private BankDBConnection bankCon;
+	private final LogHelper log = new LogHelper();
 	
 	public RoleDaoImpl() {
 	}
@@ -33,7 +35,7 @@ public class RoleDaoImpl implements RoleDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return roleList;
 	}
@@ -53,7 +55,7 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return role;
 	}
@@ -72,25 +74,25 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return role;
 	}
 
 	@Override
 	public void update(Role entity) {
-		System.out.println("Not acceptable for this class");
+		log.callErrorLogger("Not acceptable for this class");
 	}
 
 	@Override
 	public Role insert(Role entity) {
-		System.out.println("Not acceptable for this class");
+		log.callErrorLogger("Not acceptable for this class");
 		return null;
 	}
 
 	@Override
 	public void delete(Role entity) {
-		System.out.println("Not acceptable for this class");
+		log.callErrorLogger("Not acceptable for this class");
 	}
 	
 

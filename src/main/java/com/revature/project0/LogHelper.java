@@ -25,6 +25,11 @@ public class LogHelper {
 		log.setLevel(Level.DEBUG);
 		log.debug(e);
 	}
+	
+	public void callFatalLogger(Exception e) {
+		log.setLevel(Level.DEBUG);
+		log.fatal(e);
+	}
 }
 
 //public void callStaticLogger() {

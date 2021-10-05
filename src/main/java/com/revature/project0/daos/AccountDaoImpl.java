@@ -9,11 +9,13 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project0.LogHelper;
 import com.revature.project0.models.Account;
 
 public class AccountDaoImpl implements AccountDao{
 	
 	private BankDBConnection bankCon;
+	private final LogHelper log = new LogHelper();
 	
 	public AccountDaoImpl() {
 	}
@@ -35,7 +37,7 @@ public class AccountDaoImpl implements AccountDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return accountList;
 	}
@@ -55,7 +57,7 @@ public class AccountDaoImpl implements AccountDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 	}
@@ -76,7 +78,7 @@ public class AccountDaoImpl implements AccountDao{
 			newEntity = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		return newEntity;
@@ -96,7 +98,7 @@ public class AccountDaoImpl implements AccountDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 	}
@@ -121,7 +123,7 @@ public class AccountDaoImpl implements AccountDao{
 				account = new Account(result.getInt(1), result.getFloat(2), result.getInt(3), result.getBoolean(4));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return account;
 	}
@@ -139,7 +141,7 @@ public class AccountDaoImpl implements AccountDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 	}
 
@@ -158,7 +160,7 @@ public class AccountDaoImpl implements AccountDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return accountList;
 	}
@@ -178,7 +180,7 @@ public class AccountDaoImpl implements AccountDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return accountList;
 	}
