@@ -3,7 +3,6 @@ package com.revature.project0.scanner;
 import java.util.Scanner;
 
 import com.revature.project0.LogHelper;
-import com.revature.project0.MainDriver;
 import com.revature.project0.models.User;
 
 public class EmployeeScreen implements Screen{
@@ -30,7 +29,7 @@ public class EmployeeScreen implements Screen{
 		
 		switch (enter) {
 		case "0":
-			MainDriver.isRunning = false;
+			System.exit(1);
 			return;
 			
 		case "1":
