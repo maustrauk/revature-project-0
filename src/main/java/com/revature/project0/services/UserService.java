@@ -55,6 +55,9 @@ public class UserService {
 		if (uDao.getById(user.getUserId()) == null) {
 			throw new NullPointerException("There isn't a user with id: " + user.getUserId());
 		}
+		if (uDao.getByName(user.getUserName()) != null) {
+			throw new NullPointerException("There is a user with username: " + user.getUserName());
+		}
 		uDao.update(user);
 		accountListUpdate(user.getAccountList());
 	}
