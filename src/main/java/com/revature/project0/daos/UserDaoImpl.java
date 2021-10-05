@@ -9,6 +9,7 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project0.LogHelper;
 import com.revature.project0.models.Account;
 import com.revature.project0.models.User;
 
@@ -17,6 +18,8 @@ public class UserDaoImpl implements UserDao{
 	private BankDBConnection bankCon;
 	
 	private AccountDaoImpl accountDao;
+	
+	private final LogHelper log = new LogHelper();
 	
 	public UserDaoImpl() {
 	}
@@ -40,7 +43,7 @@ public class UserDaoImpl implements UserDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return userList;
 	}
@@ -61,7 +64,7 @@ public class UserDaoImpl implements UserDao{
 				user = new User(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4), accountList);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return user;
 	}
@@ -81,7 +84,7 @@ public class UserDaoImpl implements UserDao{
 				user = new User(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4), accountList);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return user;
 	}
@@ -102,7 +105,7 @@ public class UserDaoImpl implements UserDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 	}
@@ -123,7 +126,7 @@ public class UserDaoImpl implements UserDao{
 			newEntity = getByName(entity.getUserName());
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		return newEntity;
@@ -138,10 +141,10 @@ public class UserDaoImpl implements UserDao{
 			statement.setInt(2, entity.getUserId());
 			statement.execute();
 			
-			System.out.println(statement.getString(1));
+			log.callInfoLogger(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 	}
