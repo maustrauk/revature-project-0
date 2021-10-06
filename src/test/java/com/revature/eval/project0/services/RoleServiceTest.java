@@ -2,6 +2,7 @@ package com.revature.eval.project0.services;
 
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,5 +37,14 @@ public class RoleServiceTest {
 	@Test
 	public void  testGetRoleByIdSuccess() {
 		assertEquals(rServ.getRoleById(2), testRole);
+	}
+	
+	@Test
+	public void testGetRoleByIdUnsuccess() {
+		assertThrows(NullPointerException.class, () -> rServ.getRoleById(10));
+	}
+	@Test
+	public void testGetRoleByNameUnsuccess() {
+		assertThrows(NullPointerException.class, () -> rServ.getRoleByName("Test"));
 	}
 }
